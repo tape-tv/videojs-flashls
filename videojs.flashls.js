@@ -4,7 +4,7 @@
   videojs.flashls = function(options){
     options = options || {};
 
-    // set the swf url to the flashls fork of video-js.swf
+    // set the swf url to the flashls fork of video-js4.swf
     //  to download the forked swf, go here: https://github.com/mangui/video-js-swf
     if(options.swfUrl){
       videojs.options.flash.swf = options.swfUrl;
@@ -12,7 +12,7 @@
 
     videojs.options.flash.flashVars = videojs.options.flash.flashVars || {};
 
-    // v0.4.1.1 of mangui/video-js.swf is broken when capleveltostage=true, where it only plays the first level in the
+    // v0.4.1.1 of mangui/video-js4.swf is broken when capleveltostage=true, where it only plays the first level in the
     //  playlist regardless of the bandwidth it can handle, so we set capleveltostage=false.
     //  more info can be found here: https://github.com/mangui/flashls/issues/351
     videojs.options.flash.flashVars.hls_capleveltostage = false;
@@ -25,9 +25,9 @@
     //  videojs boots up, it tries to handle the m3u8 source with the flash handler
     videojs.options.techOrder = ['flash','html5'];
 
-    // register a source handler for m3u8 files, so that videojs knows the flashls' video-js.swf
+    // register a source handler for m3u8 files, so that videojs knows the flashls' video-js4.swf
     //  can handle playing m3u8 files.
-    videojs.Flash.registerSourceHandler({
+    videojs.getComponent('Flash').registerSourceHandler({
       canHandleSource: function(source){
         return source.type === 'application/x-mpegURL' ? 'maybe' : '';
       },

@@ -10,6 +10,31 @@
       videojs.options.flash.swf = options.swfUrl;
     }
 
+    /**
+     * Trigger events from the swf on the player
+     * onsrcchange, seeking, waiting, play, durationchange, seeked, loadeddata, canplay, levelswitch, durationchange
+     * @param swfID
+     * @param eventName
+     */
+    videojs.getComponent('Flash').onEvent = function (swfID, eventName) {
+      var tech = document.getElementById(swfID).tech;
+      tech.trigger(eventName);
+      //console.info(eventName);
+      if(eventName){
+        //console.info(eventName);
+        switch (eventName){
+          case "onsrcchange":
+            break;
+          case "seeking":
+            break;
+          case "canplay":
+            break;
+          default:
+            break;
+        }
+      }
+    };
+
     videojs.options.flash.flashVars = videojs.options.flash.flashVars || {};
 
     // v0.4.1.1 of mangui/video-js4.swf is broken when capleveltostage=true, where it only plays the first level in the

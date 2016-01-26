@@ -27,15 +27,11 @@ The `flashls` plugin adds a tech adapter to videojs, so this must happen before 
 
 
 ```js
-// init the flashls plugin
-videojs.flashls({swfUrl: "http://localhost:3000/path/to/flashls/video-js.swf"});
-
-// init your player
-videojs("video_id", {}).ready(function(){
+// init your player with the flashls plugin pointing to the special swf
+videojs("video_id", {plugins: {flashls: {swfUrl: "http://localhost:3000/path/to/flashls/video-js.swf"}}}).ready(function(){
 	console.log("player is ready!");
 });
 ```
-
 
 ## TODO
 

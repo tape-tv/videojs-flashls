@@ -19,20 +19,6 @@
     videojs.getComponent('Flash').onEvent = function (swfID, eventName) {
       var tech = document.getElementById(swfID).tech;
       tech.trigger(eventName);
-      //console.info(eventName);
-      if(eventName){
-        //console.info(eventName);
-        switch (eventName){
-          case "onsrcchange":
-            break;
-          case "seeking":
-            break;
-          case "canplay":
-            break;
-          default:
-            break;
-        }
-      }
     };
 
     videojs.options.flash.flashVars = videojs.options.flash.flashVars || {};

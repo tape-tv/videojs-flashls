@@ -1,7 +1,7 @@
 (function(window, videojs, undefined){
   'use strict';
 
-  videojs.flashls = function(options){
+  var flashls = function(options){
     options = options || {};
 
     // set the swf url to the flashls fork of video-js4.swf
@@ -47,7 +47,7 @@
       }
     });
 
-    return videojs;
+    videojs.plugin('flashls', flashls);
   };
 
 })(window, window.videojs, document);
